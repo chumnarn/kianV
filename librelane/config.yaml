@@ -89,8 +89,8 @@ PL_TARGET_DENSITY_PCT: 30
 GRT_ALLOW_CONGESTION: true
 FP_MACRO_HORIZONTAL_HALO: 10
 FP_MACRO_VERTICAL_HALO: 10
-FP_PDN_HORIZONTAL_HALO: 5
-FP_PDN_VERTICAL_HALO: 5
+PDN_HORIZONTAL_HALO: 5
+PDN_VERTICAL_HALO: 5
 
 PAD_SOUTH: [clk_pad, rst_n_pad, "bidirs\\[0\\].bidir_pad", "bidirs\\[1\\].bidir_pad", "bidirs\\[2\\].bidir_pad", "bidirs\\[3\\].bidir_pad", "bidirs\\[4\\].bidir_pad", "bidirs\\[5\\].bidir_pad", "bidirs\\[6\\].bidir_pad", "bidirs\\[7\\].bidir_pad", "bidirs\\[8\\].bidir_pad", "bidirs\\[9\\].bidir_pad", "bidirs\\[10\\].bidir_pad", "bidirs\\[11\\].bidir_pad", "bidirs\\[12\\].bidir_pad"]
 PAD_EAST: ["bidirs\\[13\\].bidir_pad", "bidirs\\[14\\].bidir_pad", "bidirs\\[15\\].bidir_pad", "bidirs\\[16\\].bidir_pad", "bidirs\\[17\\].bidir_pad", "bidirs\\[18\\].bidir_pad", "bidirs\\[19\\].bidir_pad", "bidirs\\[20\\].bidir_pad", "bidirs\\[21\\].bidir_pad", "bidirs\\[22\\].bidir_pad", "bidirs\\[23\\].bidir_pad", "bidirs\\[24\\].bidir_pad", "bidirs\\[25\\].bidir_pad", "bidirs\\[26\\].bidir_pad", vdd_pad]
@@ -117,8 +117,7 @@ MACROS:
     gds: [pdk_dir::libs.ref/sg13g2_sram/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds]
     lef: [pdk_dir::libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef]
     vh:
-      - pdk_dir::libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_1024x32_c2_bm_bist.v
-      - pdk_dir::libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_core_behavioral_bm_bist.v
+      - dir::../src/RM_IHPSG13_1P_1024x32_c2_bm_bist.bb.v
     lib:
       "*_typ_1p20V_25C": [pdk_dir::libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib]
       "*_fast_1p32V_m40C": [pdk_dir::libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib]
