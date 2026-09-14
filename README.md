@@ -287,3 +287,9 @@ KianV RTL is derived from the pinned Apache-2.0 upstream repository. The
 pad-ring and bond-pad integration follows the Apache-2.0 IHP LibreLane template.
 Individual source headers and `LICENSE` remain authoritative.
 
+### Main Links:
+1. [KianV pinned commit](https://github.com/splinedrive/gf180mcu-kianv-rv32ima-sv32/tree/d7370740d2c20cb4b00dd6d043f328290cb48b73),
+2. [IHP LibreLane template](https://github.com/IHP-GmbH/ihp-sg13g2-librelane-template)
+3.  [IHP SRAM library documentation](https://ihp-open-pdk-docs.readthedocs.io/en/latest/contents/reference_libraries/sram.html)
+
+
