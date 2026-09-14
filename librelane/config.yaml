@@ -1,0 +1,149 @@
+meta:
+  version: 3
+  flow: Chip
+  substituting_steps:
+    Checker.IllegalOverlap: null
+
+DESIGN_NAME: chip_top
+VERILOG_INCLUDE_DIRS:
+  - dir::../src
+  - dir::../src/kianv_harris_edition
+VERILOG_FILES:
+  - dir::../src/chip_top.sv
+  - dir::../src/chip_core.sv
+  - dir::../src/cache.v
+  - dir::../src/cache_sram_D$.v
+  - dir::../src/cache_sram_I$.v
+  - dir::../src/clint.v
+  - dir::../src/dcache.v
+  - dir::../src/fifo.v
+  - dir::../src/gpio.v
+  - dir::../src/icache.v
+  - dir::../src/plic.v
+  - dir::../src/rx_uart.v
+  - dir::../src/sdram/mt48lc16m16a2_ctrl.v
+  - dir::../src/soc.v
+  - dir::../src/spi.v
+  - dir::../src/spi_nor_flash.v
+  - dir::../src/sram_sp_ihp_512x56.v
+  - dir::../src/tx_uart.v
+  - dir::../src/kianv_harris_edition/alu.v
+  - dir::../src/kianv_harris_edition/alu_decoder.v
+  - dir::../src/kianv_harris_edition/associative_cache.v
+  - dir::../src/kianv_harris_edition/control_unit.v
+  - dir::../src/kianv_harris_edition/csr_decoder.v
+  - dir::../src/kianv_harris_edition/csr_exception_handler.v
+  - dir::../src/kianv_harris_edition/csr_unit.v
+  - dir::../src/kianv_harris_edition/datapath_unit.v
+  - dir::../src/kianv_harris_edition/design_elements.v
+  - dir::../src/kianv_harris_edition/design_elements_fpgacpu_ca.v
+  - dir::../src/kianv_harris_edition/divider.v
+  - dir::../src/kianv_harris_edition/divider_decoder.v
+  - dir::../src/kianv_harris_edition/extend.v
+  - dir::../src/kianv_harris_edition/interrupt_controller.v
+  - dir::../src/kianv_harris_edition/kianv_harris_mc_edition.v
+  - dir::../src/kianv_harris_edition/load_alignment.v
+  - dir::../src/kianv_harris_edition/load_decoder.v
+  - dir::../src/kianv_harris_edition/main_fsm.v
+  - dir::../src/kianv_harris_edition/multiplier.v
+  - dir::../src/kianv_harris_edition/multiplier_decoder.v
+  - dir::../src/kianv_harris_edition/multiplier_extension_decoder.v
+  - dir::../src/kianv_harris_edition/register_file.v
+  - dir::../src/kianv_harris_edition/store_alignment.v
+  - dir::../src/kianv_harris_edition/store_decoder.v
+  - dir::../src/kianv_harris_edition/sv32.v
+  - dir::../src/kianv_harris_edition/sv32_table_walk.v
+  - dir::../src/kianv_harris_edition/sv32_translate_data_to_physical.v
+  - dir::../src/kianv_harris_edition/sv32_translate_instruction_to_physical.v
+
+VERILOG_DEFINES:
+  - SYSTEM_CLK=20000000
+  - TRP_NS=15
+  - TRCD_NS=15
+  - TRFC_NS=66
+  - TWR_NS=15
+  - CAS=2
+  - TREFI_NS=7800
+  - SDRAM_SIZE=33554432
+  - NUM_ENTRIES_ITLB=32
+  - NUM_ENTRIES_DTLB=32
+  - SYNTHESIS
+  - BYPASS_CACHES=1'b0
+  - SLOT_1X1
+
+SYNTH_STRATEGY: AREA 3
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+PNR_SDC_FILE: dir::chip_top.sdc
+SIGNOFF_SDC_FILE: dir::chip_top.sdc
+FALLBACK_SDC: dir::chip_top.sdc
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+CLOCK_PORT: clk_PAD
+CLOCK_NET: clk_pad/p2c
+CLOCK_PERIOD: 50.0
+
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 2800, 2800]
+CORE_AREA: [365, 365, 2435, 2435]
+PL_TARGET_DENSITY_PCT: 30
+GRT_ALLOW_CONGESTION: true
+FP_MACRO_HORIZONTAL_HALO: 10
+FP_MACRO_VERTICAL_HALO: 10
+FP_PDN_HORIZONTAL_HALO: 5
+FP_PDN_VERTICAL_HALO: 5
+
+PAD_SOUTH: [clk_pad, rst_n_pad, "bidirs\\[0\\].bidir_pad", "bidirs\\[1\\].bidir_pad", "bidirs\\[2\\].bidir_pad", "bidirs\\[3\\].bidir_pad", "bidirs\\[4\\].bidir_pad", "bidirs\\[5\\].bidir_pad", "bidirs\\[6\\].bidir_pad", "bidirs\\[7\\].bidir_pad", "bidirs\\[8\\].bidir_pad", "bidirs\\[9\\].bidir_pad", "bidirs\\[10\\].bidir_pad", "bidirs\\[11\\].bidir_pad", "bidirs\\[12\\].bidir_pad"]
+PAD_EAST: ["bidirs\\[13\\].bidir_pad", "bidirs\\[14\\].bidir_pad", "bidirs\\[15\\].bidir_pad", "bidirs\\[16\\].bidir_pad", "bidirs\\[17\\].bidir_pad", "bidirs\\[18\\].bidir_pad", "bidirs\\[19\\].bidir_pad", "bidirs\\[20\\].bidir_pad", "bidirs\\[21\\].bidir_pad", "bidirs\\[22\\].bidir_pad", "bidirs\\[23\\].bidir_pad", "bidirs\\[24\\].bidir_pad", "bidirs\\[25\\].bidir_pad", "bidirs\\[26\\].bidir_pad", vdd_pad]
+PAD_NORTH: ["bidirs\\[39\\].bidir_pad", "bidirs\\[38\\].bidir_pad", "bidirs\\[37\\].bidir_pad", "bidirs\\[36\\].bidir_pad", "bidirs\\[35\\].bidir_pad", "bidirs\\[34\\].bidir_pad", "bidirs\\[33\\].bidir_pad", "bidirs\\[32\\].bidir_pad", "bidirs\\[31\\].bidir_pad", "bidirs\\[30\\].bidir_pad", "bidirs\\[29\\].bidir_pad", "bidirs\\[28\\].bidir_pad", "bidirs\\[27\\].bidir_pad", vss_pad, iovdd_pad]
+PAD_WEST: ["bidirs\\[53\\].bidir_pad", "bidirs\\[52\\].bidir_pad", "bidirs\\[51\\].bidir_pad", "bidirs\\[50\\].bidir_pad", "bidirs\\[49\\].bidir_pad", "bidirs\\[48\\].bidir_pad", "bidirs\\[47\\].bidir_pad", "bidirs\\[46\\].bidir_pad", "bidirs\\[45\\].bidir_pad", "bidirs\\[44\\].bidir_pad", "bidirs\\[43\\].bidir_pad", "bidirs\\[42\\].bidir_pad", "bidirs\\[41\\].bidir_pad", "bidirs\\[40\\].bidir_pad", iovss_pad]
+
+PAD_BONDPAD_NAME: bondpad_70x70_novias
+EXTRA_GDS: [dir::../ip/bondpad_70x70_novias/gds/bondpad_70x70_novias.gds]
+EXTRA_LEFS: [dir::../ip/bondpad_70x70_novias/lef/bondpad_70x70_novias.lef]
+IGNORE_DISCONNECTED_MODULES: [bondpad_70x70_novias]
+
+PDN_CORE_RING: true
+PDN_CORE_RING_VWIDTH: 15
+PDN_CORE_RING_HWIDTH: 15
+PDN_CORE_RING_VSPACING: 5
+PDN_CORE_RING_HSPACING: 5
+PDN_CORE_RING_CONNECT_TO_PADS: true
+PDN_ENABLE_PINS: false
+MAGIC_EXT_UNIQUE: notopports
+PDN_CFG: dir::pdn_cfg.tcl
+
+MACROS:
+  RM_IHPSG13_1P_1024x32_c2_bm_bist:
+    gds: [pdk_dir::libs.ref/sg13g2_sram/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds]
+    lef: [pdk_dir::libs.ref/sg13g2_sram/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef]
+    vh:
+      - pdk_dir::libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_1024x32_c2_bm_bist.v
+      - pdk_dir::libs.ref/sg13g2_sram/verilog/RM_IHPSG13_1P_core_behavioral_bm_bist.v
+    lib:
+      "*_typ_1p20V_25C": [pdk_dir::libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib]
+      "*_fast_1p32V_m40C": [pdk_dir::libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib]
+      "*_slow_1p08V_125C": [pdk_dir::libs.ref/sg13g2_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_slow_1p08V_125C.lib]
+    instances:
+      i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_lo: {location: [520, 520], orientation: N}
+      i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_hi: {location: [1100, 520], orientation: N}
+      i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_lo: {location: [1680, 520], orientation: N}
+      i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_hi: {location: [520, 1800], orientation: S}
+      i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_lo: {location: [1100, 1800], orientation: S}
+      i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_hi: {location: [1680, 1800], orientation: S}
+
+PDN_MACRO_CONNECTIONS:
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_lo VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_lo VDD VSS VDD! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_hi VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way0.sram_hi VDD VSS VDD! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_lo VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_lo VDD VSS VDD! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_hi VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.icache_I.cache_I.u_mem_way1.sram_hi VDD VSS VDD! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_lo VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_lo VDD VSS VDD! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_hi VDD VSS VDDARRAY! VSS!"
+  - "i_chip_core.u_soc.cache_I.gen_cached.dcache_I.cache_D.u_mem.sram_hi VDD VSS VDD! VSS!"
+
+MAGIC_GDS_FLATGLOB: ["lvsres_*", "VIA_M1_*", "VIA_M2_*", "*_CELL_CORNER", "RSC_*", "*_CELL_SUB"]
+

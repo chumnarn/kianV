@@ -1,0 +1,4 @@
+repository=https://github.com/splinedrive/gf180mcu-kianv-rv32ima-sv32.git
+commit=d7370740d2c20cb4b00dd6d043f328290cb48b73
+template=https://github.com/IHP-GmbH/ihp-sg13g2-librelane-template.git
+
