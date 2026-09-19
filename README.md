@@ -319,6 +319,9 @@ Individual source headers and `LICENSE` remain authoritative.
 ```bash
 tar -xzf kianv-ihp-sg13g2-fullchip-ready.tar.gz
 cd kianv-ihp-sg13g2-fullchip
+
+git -C "$HOME/labs/kianV" add -N "kianv-ihp-sg13g2-fullchip/flake.nix"
+
 nix develop
 
 make preflight
