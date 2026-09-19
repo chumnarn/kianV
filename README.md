@@ -327,6 +327,12 @@ nix develop
 make preflight
 make sim
 make validate
+
+
+librelane --pdk ihp-sg13g2 --flow Chip librelane/config.yaml \
+  --run-tag kianv_dev --skip KLayout.DRC --skip Magic.DRC
+
+
 make harden RUN_TAG=kianv_ihp_$(date +%Y%m%d)
 ```
 
